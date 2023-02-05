@@ -3,6 +3,7 @@ import { Cart } from "./Cart";
 import { Header } from "./Header";
 import { ProductList } from "./ProductList";
 import { api } from "./services/api";
+import { DivProductCart } from "./styles/app";
 
 function App() {
   const localStorageProduct = localStorage.getItem("@PRODUCT");
@@ -15,7 +16,7 @@ function App() {
   const filterProduct = products.filter((product) => {
     return filteredProducts === ""
       ? true
-      : product.name.toLowerCase().includes(filteredProducts.toLowerCase());
+      : product.category.toLowerCase().includes(filteredProducts);
   });
 
   useEffect(() => {
@@ -52,8 +53,10 @@ function App() {
   return (
     <div className="App">
       <Header setFilteredProducts={setFilteredProducts} />
-      <Cart productCart={productCart} removeCart={removeCart} />
-      <ProductList products={products} addCart={addCart} />
+      <DivProductCart>
+        <ProductList filterProduct={filterProduct} addCart={addCart} />
+        <Cart productCart={productCart} removeCart={removeCart} />
+      </DivProductCart>
     </div>
   );
 }

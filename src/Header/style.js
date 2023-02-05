@@ -13,16 +13,17 @@ export const HeaderStyle = styled.header`
 export const NavHeader = styled.nav`
   display: flex;
   align-items: center;
-  justify-content: space-around;
-  max-width: 1100px;
+  justify-content: space-between;
+  max-width: 1345px;
   width: 100%;
   height: 80px;
-  margin: 0 auto;
+  padding: 0 40px;
 
   @media (max-width: 500px) {
     height: 139px;
 
     display: flex;
     flex-direction: column;
+    justify-content: space-around;
   }
 `;

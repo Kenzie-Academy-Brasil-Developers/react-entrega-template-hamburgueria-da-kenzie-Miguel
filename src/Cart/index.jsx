@@ -1,11 +1,14 @@
 import React from "react";
 import { CartCard } from "./CartCard";
+import { DivGeneral, DivTitle, TitleCart, UlCart } from "./style";
 
 export const Cart = ({ productCart, removeCart }) => {
   return (
-    <div>
-      <h2>Carrinho:</h2>
-      <ul>
+    <DivGeneral>
+      <DivTitle>
+        <TitleCart>Carrinho de compras:</TitleCart>
+      </DivTitle>
+      <UlCart>
         {productCart.map((product) => (
           <CartCard
             key={product.id}
@@ -13,7 +16,7 @@ export const Cart = ({ productCart, removeCart }) => {
             removeCart={removeCart}
           />
         ))}
-      </ul>
-    </div>
+      </UlCart>
+    </DivGeneral>
   );
 };

@@ -1,15 +1,28 @@
 import React from "react";
+import {
+  LiCard,
+  DivImg,
+  DivInfo,
+  ButtonAddProduct,
+  Title,
+  Category,
+  Price,
+} from "./style";
 
 export const ProductCard = ({ product, addCart }) => {
   return (
-    <li>
-      <img src={product.img} alt="" />
-      <h2>{product.name}</h2>
-      <span>{product.category}</span>
-      <span>{product.price}</span>
-      <button id={product.id} onClick={() => addCart(product)}>
-        Adicionar
-      </button>
-    </li>
+    <LiCard>
+      <DivImg>
+        <img src={product.img} alt="" />
+      </DivImg>
+      <DivInfo>
+        <Title>{product.name}</Title>
+        <Category>{product.category}</Category>
+        <Price>{product.price}</Price>
+        <ButtonAddProduct id={product.id} onClick={() => addCart(product)}>
+          Adicionar
+        </ButtonAddProduct>
+      </DivInfo>
+    </LiCard>
   );
 };

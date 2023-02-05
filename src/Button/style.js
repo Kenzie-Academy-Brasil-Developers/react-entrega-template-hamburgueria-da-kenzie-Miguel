@@ -15,3 +15,12 @@ export const ButtonSearch = styled.button`
   line-height: 17px;
   color: #ffffff;
 `;
+
+export const ButtonAddProduct = styled.button`
+  width: 106px;
+  height: 40px;
+
+  background: #27ae60;
+  border: 2px solid #27ae60;
+  border-radius: 8px;
+`;
