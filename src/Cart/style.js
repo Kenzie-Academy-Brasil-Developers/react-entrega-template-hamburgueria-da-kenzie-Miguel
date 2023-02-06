@@ -8,8 +8,8 @@ export const DivTitle = styled.div`
   background: #27ae60;
   border-radius: 5px 5px 0px 0px;
 
-  @media (min-width: 1000px) {
-    width: 365px;
+  @media (max-width: 1000px) {
+    width: 300px;
   }
 `;
 

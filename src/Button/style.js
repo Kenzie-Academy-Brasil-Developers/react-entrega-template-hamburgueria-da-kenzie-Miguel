@@ -1,6 +1,7 @@
 import styled from "styled-components";
 
 export const ButtonSearch = styled.button`
+  position: absolute;
   max-width: 107px;
 
   height: 40px;

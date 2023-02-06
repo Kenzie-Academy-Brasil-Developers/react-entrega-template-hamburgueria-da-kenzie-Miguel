@@ -4,6 +4,8 @@ import { Header } from "./Header";
 import { ProductList } from "./ProductList";
 import { api } from "./services/api";
 import { DivProductCart } from "./styles/app";
+import { ToastContainer, toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 
 function App() {
   const localStorageProduct = localStorage.getItem("@PRODUCT");
@@ -11,12 +13,17 @@ function App() {
   const [productCart, setProductCart] = useState(
     localStorageProduct ? JSON.parse(localStorageProduct) : []
   );
-  const [filteredProducts, setFilteredProducts] = useState([]);
-
+  const [filteredProducts, setFilteredProducts] = useState("");
   const filterProduct = products.filter((product) => {
-    return filteredProducts === ""
+    return filteredProducts.trim() === ""
       ? true
-      : product.category.toLowerCase().includes(filteredProducts);
+      : product.category
+          .toLowerCase()
+          .includes(filteredProducts.toLowerCase()) ||
+          product.name
+            .toLowerCase()
+            .trim()
+            .includes(filteredProducts.toLowerCase().trim());
   });
 
   useEffect(() => {
@@ -37,21 +44,23 @@ function App() {
   }, [productCart]);
 
   const addCart = (currentProduct) => {
-    console.log("addcart", currentProduct);
     if (!productCart.some((product) => product.id === currentProduct.id)) {
       setProductCart([...productCart, currentProduct]);
+      toast.success("Item adicionado ao carrinho!");
     } else {
-      alert("Item ja está no carrinho");
+      toast.error("Item já está no carrinho!");
     }
   };
 
   const removeCart = (currentId) => {
     const newCart = productCart.filter((product) => product.id !== currentId);
     setProductCart(newCart);
+    toast.error("Item removido!");
   };
 
   const totalDelete = () => {
     setProductCart([]);
+    toast.warning("Itens removidos, Sacola vazia!");
   };
 
   return (
@@ -65,6 +74,18 @@ function App() {
           totalDelete={totalDelete}
         />
       </DivProductCart>
+      <ToastContainer
+        position="top-right"
+        autoClose={1000}
+        hideProgressBar={false}
+        newestOnTop={false}
+        closeOnClick
+        rtl={false}
+        pauseOnFocusLoss
+        draggable
+        pauseOnHover
+        theme="light"
+      />
     </div>
   );
 }

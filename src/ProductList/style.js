@@ -6,6 +6,7 @@ export const UlContainer = styled.ul`
   justify-content: center;
 
   max-width: 960px;
+  width: 100%;
   gap: 20px;
   margin-top: 31px;
 `;
