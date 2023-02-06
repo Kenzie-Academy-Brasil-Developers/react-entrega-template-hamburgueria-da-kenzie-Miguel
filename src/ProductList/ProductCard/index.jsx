@@ -18,7 +18,7 @@ export const ProductCard = ({ product, addCart }) => {
       <DivInfo>
         <Title>{product.name}</Title>
         <Category>{product.category}</Category>
-        <Price>{product.price}</Price>
+        <Price>R$ {product.price}</Price>
         <ButtonAddProduct id={product.id} onClick={() => addCart(product)}>
           Adicionar
         </ButtonAddProduct>

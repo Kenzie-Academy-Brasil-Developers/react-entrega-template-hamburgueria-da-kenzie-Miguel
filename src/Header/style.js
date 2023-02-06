@@ -14,10 +14,10 @@ export const NavHeader = styled.nav`
   display: flex;
   align-items: center;
   justify-content: space-between;
-  max-width: 1345px;
+  max-width: 1400px;
   width: 100%;
+  margin: 0 auto;
   height: 80px;
-  padding: 0 40px;
 
   @media (max-width: 500px) {
     height: 139px;
