@@ -9,8 +9,9 @@ import {
   TitleCart,
   UlCart,
 } from "./style";
+import { TotalCart } from "./TotalCart";
 
-export const Cart = ({ productCart, removeCart }) => {
+export const Cart = ({ productCart, removeCart, totalDelete }) => {
   return (
     <DivGeneral>
       <DivTitle>
@@ -32,6 +33,7 @@ export const Cart = ({ productCart, removeCart }) => {
           <AddProduct>Adicione itens</AddProduct>
         </DivCartClean>
       )}
+      <TotalCart productCart={productCart} totalDelete={totalDelete} />
     </DivGeneral>
   );
 };

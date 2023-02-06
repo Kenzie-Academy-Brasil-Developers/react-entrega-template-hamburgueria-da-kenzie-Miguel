@@ -50,12 +50,20 @@ function App() {
     setProductCart(newCart);
   };
 
+  const totalDelete = () => {
+    setProductCart([]);
+  };
+
   return (
     <div className="App">
       <Header setFilteredProducts={setFilteredProducts} />
       <DivProductCart>
         <ProductList filterProduct={filterProduct} addCart={addCart} />
-        <Cart productCart={productCart} removeCart={removeCart} />
+        <Cart
+          productCart={productCart}
+          removeCart={removeCart}
+          totalDelete={totalDelete}
+        />
       </DivProductCart>
     </div>
   );
