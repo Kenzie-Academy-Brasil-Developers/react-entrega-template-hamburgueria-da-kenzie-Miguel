@@ -9,8 +9,8 @@ import {
 } from "./style";
 
 export const TotalCart = ({ productCart, totalDelete }) => {
-  const totalCart = productCart.reduce((acc, ValueTotal) => {
-    return ValueTotal.price + acc;
+  const totalCart = productCart.reduce((acc, ValueProduct) => {
+    return ValueProduct.price + acc;
   }, 0);
 
   return (

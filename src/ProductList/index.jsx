@@ -2,7 +2,7 @@ import React from "react";
 import { ProductCard } from "./ProductCard";
 import { UlContainer } from "./style";
 
-export const ProductList = ({ products, addCart, filterProduct }) => {
+export const ProductList = ({ addCart, filterProduct }) => {
   return (
     <UlContainer>
       {filterProduct.map((product) => (

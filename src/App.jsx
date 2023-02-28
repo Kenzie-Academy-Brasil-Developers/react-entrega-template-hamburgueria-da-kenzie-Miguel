@@ -14,6 +14,7 @@ function App() {
     localStorageProduct ? JSON.parse(localStorageProduct) : []
   );
   const [filteredProducts, setFilteredProducts] = useState("");
+
   const filterProduct = products.filter((product) => {
     return filteredProducts.trim() === ""
       ? true
